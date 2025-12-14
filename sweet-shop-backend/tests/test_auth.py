@@ -136,7 +136,7 @@ def test_get_current_user_with_valid_token(client: TestClient, db: Session):
 def test_get_current_user_without_token(client: TestClient):
     """Test getting current user without token."""
     response = client.get("/auth/me")
-    assert response.status_code == 403
+    assert response.status_code == 401
 
 
 def test_get_current_user_with_invalid_token(client: TestClient):

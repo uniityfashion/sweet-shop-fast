@@ -1,7 +1,7 @@
 """
 Pydantic schemas for request/response validation.
 """
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional
 from app.models import UserRole
 
@@ -27,8 +27,7 @@ class UserResponse(UserBase):
     id: int
     role: UserRole
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # Token Schemas
@@ -71,8 +70,7 @@ class SweetResponse(SweetBase):
     """Schema for sweet response."""
     id: int
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # Inventory Schemas
