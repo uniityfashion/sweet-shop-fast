@@ -48,9 +48,8 @@ class TokenData(BaseModel):
 class SweetBase(BaseModel):
     """Base schema for sweet data."""
     name: str = Field(..., min_length=1, max_length=100)
-    category: str = Field(..., min_length=1, max_length=50)
+    description: str = Field(..., min_length=1)
     price: float = Field(..., gt=0)
-    quantity: int = Field(default=0, ge=0)
 
 
 class SweetCreate(SweetBase):
@@ -61,9 +60,8 @@ class SweetCreate(SweetBase):
 class SweetUpdate(BaseModel):
     """Schema for updating a sweet."""
     name: Optional[str] = Field(None, min_length=1, max_length=100)
-    category: Optional[str] = Field(None, min_length=1, max_length=50)
+    description: Optional[str] = Field(None, min_length=1)
     price: Optional[float] = Field(None, gt=0)
-    quantity: Optional[int] = Field(None, ge=0)
 
 
 class SweetResponse(SweetBase):

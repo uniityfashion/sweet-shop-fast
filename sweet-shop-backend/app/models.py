@@ -36,12 +36,11 @@ class Sweet(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True, nullable=False)
-    category = Column(String, index=True, nullable=False)
+    description = Column(String, nullable=False)
     price = Column(Float, nullable=False)
-    quantity = Column(Integer, default=0, nullable=False)
 
     def __repr__(self):
         return (
-            f"<Sweet(id={self.id}, name={self.name}, category={self.category}, "
-            f"price={self.price}, quantity={self.quantity})>"
+            f"<Sweet(id={self.id}, name={self.name}, description={self.description}, "
+            f"price={self.price})>"
         )
