@@ -288,6 +288,41 @@ npm run build
 # - AWS S3
 # - Any static hosting service
 ```
+## 🖼️ User Interface Screenshots
+
+This section documents the primary user-facing screens for authentication in the Sweet Shop Management System frontend.
+
+### 1. Login Page
+
+This is the entry point for all users (Admin and regular Users). It captures the `Username` and `Password` credentials required for JWT-based authentication.
+
+| Screenshot | Description |
+| :---: | :--- |
+| <img width="810" height="540" alt="Screenshot (614)" src="https://github.com/user-attachments/assets/7e7a2d14-5c01-4280-ad03-7001bd1fbd0e" /> |The primary login interface, allowing users to enter credentials or navigate to the registration page via the "Register here" link. |
+
+### 2. Registration Page
+
+This screen is used by new customers or staff to create an account by providing a username and matching passwords.
+
+| Screenshot | Description |
+| :---: | :--- |
+| <img width="810" height="540" alt="Screenshot (617)" src="https://github.com/user-attachments/assets/3220e199-8cc3-42ee-901e-84617dd8a9c5" /> | The user registration form. The system enforces password matching and security rules upon submission. |
+
+### 3. Registration Failure
+
+This screenshot illustrates the system's feedback mechanism when a registration attempt fails, often due to an existing username or a password validation error.
+
+| Screenshot | Description |
+| :---: | :--- |
+|  <img width="810" height="540" alt="Screenshot (616)" src="https://github.com/user-attachments/assets/f83f6454-f62f-46a8-a2cc-b3bc53cb89ef" /> | Error feedback indicating that the registration request, possibly for the username '22bcs12324', was rejected by the backend. |
+
+### 4. Login Failure
+
+This shows the user experience when invalid credentials (username or password) are provided during a login attempt, protecting the system from unauthorized access.
+
+| Screenshot | Description |
+| :---: | :--- |
+| <img width="810" height="540" alt="Screenshot (615)" src="https://github.com/user-attachments/assets/5663ba40-93b1-4898-97f5-32db6c2cc027" /> | Error feedback indicating an unsuccessful login attempt for the user '22bcs12324', confirming the security mechanism is active. |
 
 ## 🐛 Troubleshooting
 
@@ -341,13 +376,10 @@ This project demonstrates:
 - [ ] Real-time notifications
 - [ ] API rate limiting
 
-## 🤝 Contributing
-
-This is a demonstration project. For contributions or improvements, feel free to fork and submit pull requests.
 
 ## 📄 License
 
-This project is open source and available for educational purposes.
+This project is open source.
 
 ## ✅ Project Status
 
@@ -367,16 +399,34 @@ This project is open source and available for educational purposes.
 4. **Test**: Register a user and test all features
 5. **Explore**: Check out the API docs at http://localhost:8000/docs
 
-## 📞 Support
+---
 
-For questions or issues:
-1. Check the troubleshooting section above
-2. Review the detailed setup guide
-3. Check browser console (F12) for frontend errors
-4. Check backend terminal for server errors
+## My AI Usage
+
+This project was developed with a strict commitment to transparency regarding the use of AI coding assistants, which significantly accelerated the development process while maintaining a strong focus on quality via Test-Driven Development (TDD).
+
+### 7.1. Tools Used
+
+* **GitHub Copilot (VS Code Extension):** Primary tool for real-time code suggestions, boilerplate generation, and accelerating the TDD cycle.
+* **LLM (e.g., Gemini/ChatGPT):** Used for high-level architectural planning, complex configuration debugging, and generating high-quality documentation drafts.
+
+### 7.2. How AI Was Leveraged
+
+| Project Area | Task | Specific Contribution by AI |
+| :--- | :--- | :--- |
+| **Backend TDD** | **Test Writing** | Generated the initial structure for most of the **25+ tests** (in `test_auth.py`, `test_sweets.py`, etc.), including mock data setup and asserting API response status codes (e.g., asserting a `403 Forbidden` for non-admin attempts). |
+| **Boilerplate** | **FastAPI Setup** | Scaffolded the initial `app/main.py` structure, including CORS middleware configuration and setting up the initial dependency injection for the SQLAlchemy database session. |
+| **Data Models** | **Schema & ORM** | Suggested the Pydantic schemas (`schemas.py`) and SQLAlchemy ORM models (`models.py`) based on the table descriptions, ensuring correct type hints (e.g., `role: Literal['ADMIN', 'USER']` for the `Users` model). |
+| **Frontend** | **Component Logic** | Assisted with the boilerplate for React functional components, state management using `useState` and `useEffect`, and the asynchronous Axios calls within `src/api.ts`. |
+| **Debugging** | **Token Handling** | Helped identify and correct a subtle bug in the JWT token extraction process (the standard `Bearer ` prefix handling) during the implementation of the `oauth2_scheme` in `app/auth.py`. |
+
+### 7.3. Co-Authorship & Reflection
+
+* **Commit History:** All commits where Copilot provided substantial structural or logical suggestions were tagged using the required `Co-authored-by: GitHub Copilot <noreply@github.com>` trailer.
+* **TDD Partnership:** AI was treated as a junior developer. I wrote the **Red** test first, allowed the AI to generate the first pass of the **Green** code, and then manually performed the **Refactor** step, often simplifying the AI's suggestions or enforcing role-based logic that the AI initially missed.
+* **Conclusion:** AI assistance allowed the project to achieve a comprehensive feature set and **100% test coverage** within the planned timeline by automating syntax and repetitive tasks, thus letting me focus purely on the application's core business logic and security features.
+
 
 ---
 
-**Created with ❤️ using FastAPI, React, and TypeScript**
-
-**Last Updated**: December 14, 2025
+**Created using FastAPI, React, and TypeScript**
