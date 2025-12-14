@@ -1,10 +1,6 @@
-import { AxiosInstance } from 'axios';
-
-declare const api: AxiosInstance;
-export default api;
-
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import api from '../api'
 import '../styles/Auth.css'
 
 export default function Login() {
