@@ -62,7 +62,9 @@ def create_sweet(
             detail="Only admins can create sweets"
         )
     
-    db_sweet = Sweet(**sweet.model_dump())
+    sweet_data = sweet.model_dump()
+    sweet_data['stock'] = sweet_data.get('stock', 0)
+    db_sweet = Sweet(**sweet_data)
     db.add(db_sweet)
     db.commit()
     db.refresh(db_sweet)

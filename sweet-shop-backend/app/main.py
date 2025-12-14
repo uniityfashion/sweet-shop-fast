@@ -3,7 +3,7 @@ FastAPI application factory and main entry point.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import auth, sweets
+from app.routers import auth, sweets, inventory
 
 # Create FastAPI app
 app = FastAPI(
@@ -24,6 +24,7 @@ app.add_middleware(
 # Include routers
 app.include_router(auth.router)
 app.include_router(sweets.router)
+app.include_router(inventory.router)
 
 
 @app.get("/health")
